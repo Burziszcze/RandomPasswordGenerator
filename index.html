@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>random password generator</title>
+    <meta name="description" content="random password generator javascript" />
+    <meta name="keywords" content="wygeneruj losowe hasło w języku javascript random password generator javascript" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <link href='https://fonts.googleapis.com/css?family=Lato|Josefin+Sans&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="fontello.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="header">Random Password Generator</div>
+    <form name="Generator">
+        <input type="text" name="licz">
+        <br />
+        <input type="button" value="generate" class="btn" onclick="Generate()">
+    </form>
+    <div class="row">
+        <h2>Ale po co mi losowe hasło?</h2>
+        <p>nie wiem, ale chciałem napisać swój prosty kod w javascripcie i mimo, że wygląda jak nieszczeście, generuje całkiem ładny losowy ciąg znaków. Może być użyty do systemu logowania na dowolnej witrynie</p>
+    </div>
+    <div class="footer">Copyright by Buurzuum &copy; 2016</div>
+    <script type="text/javascript">
+    function GeneratePassword() {
+        var randomstring = '';
+        var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz1234567890@#$%&!'
+        var pass_length = 12;
+
+        for (var i = 0; i < pass_length; i++) {
+            var rchars = Math.floor(Math.random() * chars.length);
+            randomstring += chars.substring(rchars, rchars + 1);
+        }
+        return randomstring;
+    }
+
+    function Generate() {
+        Generator.licz.value = GeneratePassword(Generator.length.value);
+    }
+    </script>
+</body>
